@@ -1,0 +1,12 @@
+// @use "/src/sass/libs/fontello.css";
+// @use "./base/variables.scss" as *;
+// @use "/src/sass/pxtorem.scss" as *;
+@use "base/basic";
+@use "bloks/header";
+@use "ui/titles";
+@use "bloks/promo";
+@use "ui/button";
+@use "bloks/activities";
+@use "bloks/touch";
+@use "bloks/works";
+@use "bloks/footer.scss";
