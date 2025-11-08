@@ -1,4 +1,5 @@
 @use "../base/variables.scss" as *;
+@use "../base/mixins.scss" as *;
 
 .catalog {
   padding-top: 50px;
@@ -12,7 +13,7 @@
     flex-wrap: wrap;
     margin-top: 60px;
     border: 1px solid $dark;
-    padding: 13px 35px;
+    padding: 13px 25px;
   }
   &__tab {
     position: relative;
@@ -31,6 +32,105 @@
       height: 1px;
       background-color: #000;
       bottom: -1px;
+    }
+  }
+
+  &__content {
+    margin-top: 60px;
+    &-item {
+      flex-direction: column;
+      row-gap: 20px;
+    }
+  }
+
+  &__card {
+    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.25);
+
+    img {
+      width: 100%;
+    }
+  }
+  &__info {
+    padding: 11px 12px 19px 12px;
+    border: 1px solid $dark;
+    border-top: none;
+  }
+
+  &__name {
+    font-weight: 500;
+    font-size: 16px;
+    color: #000;
+    line-height: normal;
+  }
+
+  &__price {
+    margin-top: 8px;
+    font-weight: 500;
+    font-size: 16px;
+    color: #000;
+    line-height: normal;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .catalog {
+    &__tabs {
+      width: 460px;
+    }
+    &__content {
+      padding: 10px;
+      position: relative;
+      @include angle-decoration;
+      &-item {
+        align-items: flex-start;
+        flex-wrap: wrap;
+        flex-direction: row;
+        gap: 20px;
+      }
+    }
+    &__card {
+      width: 340px;
+      min-height: 275px;
+      img {
+        height: 198px;
+        object-fit: cover;
+      }
+      &__price {
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .catalog {
+    &__content {
+      padding: 25px;
+      &-item {
+        gap: 35px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .catalog {
+    padding-top: 40px;
+    &__title {
+      margin-top: 100px;
+    }
+    &__content {
+      &-item {
+        row-gap: 25px;
+        column-gap: 83px;
+      }
+    }
+    &__card {
+      width: 285px;
+      min-height: 250px;
+      &-img {
+        height: 180px;
+      }
     }
   }
 }
