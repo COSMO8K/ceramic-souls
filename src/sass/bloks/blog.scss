@@ -12,8 +12,15 @@
   }
 
   &__card {
+    margin-top: 40px;
     img {
       width: 100%;
+    }
+
+    &__block {
+      &-test {
+        margin-left: 25px;
+      }
     }
 
     border: 1px solid $dark;
@@ -21,6 +28,7 @@
     background: var(--light);
     &__title {
       margin-top: 25px;
+
       font-family: var(--font-family);
       font-weight: 500;
       font-size: 24px;
@@ -38,12 +46,131 @@
     color: $dark;
   }
   &__text {
-    margin-top: 25px;
+    padding: 25px;
     font-weight: 400;
     font-size: 16px;
     color: $dark;
   }
   &__cards {
-    padding: 0 25px 25px 25px;
+    // padding: 0 25px 25px 25px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .blog {
+    &__cards {
+      padding: 0;
+    }
+
+    &__content {
+      padding: 25px;
+      position: relative;
+      @include angle-decoration;
+    }
+
+    &__card {
+      width: 670px;
+      height: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0;
+
+      &__title {
+        width: 285px;
+        padding-right: 25px;
+      }
+
+      &-spaced {
+        margin-top: 40px;
+      }
+
+      &__block {
+        display: flex;
+        gap: 25px;
+        &-test {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          margin-left: 0;
+        }
+      }
+
+      img {
+        width: 335px;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    &__text {
+      margin-top: 0;
+      padding: 15px 25px 25px 25px;
+      font-weight: 400;
+      font-size: 16px;
+      color: $dark;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .blog {
+    &__cards {
+      padding: 0;
+      display: flex;
+      column-gap: 50px;
+      align-items: start;
+    }
+    &__card {
+      width: 520px;
+      height: 394px;
+
+      &__block {
+        column-gap: 0;
+        &-test {
+          margin: 25px 25px 0 25px;
+        }
+      }
+
+      img {
+        width: 260px;
+        height: 240px;
+      }
+      &-spaced {
+        margin: 0;
+        width: 520px;
+        height: 375px;
+      }
+      &__title {
+        // padding-right: 31px;
+        width: 235px;
+        height: 100px;
+        margin-top: 0;
+      }
+    }
+    &__text {
+      margin: 0;
+      padding: 25px;
+    }
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .blog {
+    &__card {
+      width: 670px;
+      height: 375px;
+
+      &__title {
+        width: 100%;
+      }
+
+      img {
+        width: 335px;
+        height: 240px;
+      }
+    }
+    &__text {
+      margin: 0;
+      padding: 15px 25px 25px 25px;
+    }
   }
 }
