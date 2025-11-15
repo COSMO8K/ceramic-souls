@@ -7,170 +7,95 @@
   &__title {
     margin-top: 60px;
   }
-  &__content {
-    margin-top: 60px;
+  &__title-h3 {
+    text-align: left;
   }
 
+  &__wrapper {
+    margin-top: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 40px;
+  }
   &__card {
-    margin-top: 40px;
-    img {
-      width: 100%;
-    }
-
-    &__block {
-      &-test {
-        margin-left: 25px;
-      }
-    }
-
     border: 1px solid $dark;
     box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.25);
-    background: var(--light);
-    &__title {
-      margin-top: 25px;
-
-      font-family: var(--font-family);
-      font-weight: 500;
-      font-size: 24px;
-      text-transform: uppercase;
-      color: $dark;
+    background: $light;
+  }
+  &__data {
+    &-column {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      padding: 25px 25px 0 25px;
     }
   }
-  &__btn {
-    width: 145px;
-    height: 32px;
-    margin-top: 25px;
-    font-weight: 400;
-    font-size: 14px;
-    text-transform: uppercase;
-    color: $dark;
-  }
   &__text {
-    padding: 25px;
+    margin-top: 25px;
+    padding: 0 25px 25px 25px;
     font-weight: 400;
     font-size: 16px;
+    line-height: normal;
     color: $dark;
   }
-  &__cards {
-    // padding: 0 25px 25px 25px;
+  &__img {
+    max-inline-size: calc(100% + 2px);
+    transform: translateX(-1px) translateY(-1px);
   }
 }
 
 @media screen and (min-width: 768px) {
   .blog {
-    &__cards {
-      padding: 0;
-    }
-
-    &__content {
-      padding: 25px;
+    &__wrapper {
       position: relative;
+      padding: 25px 25px 0 25px;
       @include angle-decoration;
     }
-
-    &__card {
-      width: 670px;
-      height: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      margin: 0;
-
-      &__title {
-        width: 285px;
-        padding-right: 25px;
-      }
-
-      &-spaced {
-        margin-top: 40px;
-      }
-
-      &__block {
-        display: flex;
-        gap: 25px;
-        &-test {
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          margin-left: 0;
-        }
-      }
-
-      img {
-        width: 335px;
-        height: 100%;
-        object-fit: cover;
-      }
-    }
     &__text {
-      margin-top: 0;
-      padding: 15px 25px 25px 25px;
-      font-weight: 400;
-      font-size: 16px;
-      color: $dark;
+      margin-top: 15px;
+    }
+    &__data {
+      &-column {
+        gap: 0;
+        justify-content: space-between;
+      }
     }
   }
 }
 
 @media screen and (min-width: 1200px) {
   .blog {
-    &__cards {
-      padding: 0;
-      display: flex;
-      column-gap: 50px;
-      align-items: start;
+    &__wrapper {
+      gap: 50px;
+      align-items: flex-start;
     }
     &__card {
       width: 520px;
-      height: 394px;
-
-      &__block {
-        column-gap: 0;
-        &-test {
-          margin: 25px 25px 0 25px;
-        }
-      }
-
-      img {
-        width: 260px;
-        height: 240px;
-      }
-      &-spaced {
-        margin: 0;
-        width: 520px;
-        height: 375px;
-      }
-      &__title {
-        // padding-right: 31px;
-        width: 235px;
-        height: 100px;
-        margin-top: 0;
-      }
+      min-height: 375px;
     }
-    &__text {
-      margin: 0;
-      padding: 25px;
+    &__img {
+      height: 241px;
+      object-fit: cover;
     }
   }
 }
 
 @media screen and (min-width: 1920px) {
   .blog {
+    &__wrapper {
+      align-items: stretch;
+    }
+
+    &__title {
+      margin-top: 100px;
+    }
+
     &__card {
       width: 670px;
-      height: 375px;
-
-      &__title {
-        width: 100%;
-      }
-
-      img {
-        width: 335px;
-        height: 240px;
-      }
     }
-    &__text {
-      margin: 0;
-      padding: 15px 25px 25px 25px;
+    &__img {
+      height: 241px;
+      object-fit: cover;
     }
   }
 }

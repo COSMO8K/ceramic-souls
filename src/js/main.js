@@ -3,6 +3,7 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import JustValidate from "just-validate";
 
 // Подключаем сначала normalize, затем сторонние CSS, затем свои стили
 import "normalize.css";
@@ -80,3 +81,76 @@ try {
 } catch (e) {}
 
 // Обратите внимание, что значение block (в двух местах) можно спокойно поменять на flex, если вам это необходимо
+
+try {
+  const validator = new JustValidate("form", { submitFormAutomatically: true });
+
+  validator.addField("#name", [
+    {
+      rule: "required",
+      errorMessage: "Обязательное поле",
+    },
+    {
+      rule: "minLength",
+      value: 2,
+      errorMessage: "Минимальный текст от двух букв",
+    },
+  ]);
+
+  validator.addField("#email", [
+    {
+      rule: "required",
+      errorMessage: "Обязательное поле",
+    },
+    {
+      rule: "email",
+    },
+  ]);
+
+  validator.addField(
+    "#question",
+    [
+      {
+        rule: "required",
+        errorMessage: "Обязательное поле",
+      },
+      {
+        rule: "minLength",
+        value: 5,
+      },
+    ],
+    {
+      errorsContainer: document
+        .querySelector("#question")
+        .parentElement.querySelector(".error-message"),
+    }
+  );
+
+  validator.addField(
+    "#checkbox",
+    [
+      {
+        rule: "required",
+        errorMessage: "Обязательное поле",
+      },
+    ],
+    {
+      errorsContainer: document
+        .querySelector("#checkbox")
+        .parentElement.parentElement.querySelector(".checkbox-error-message"),
+    }
+  );
+} catch (e) {}
+
+try {
+  const validatorFooter = new JustValidate(".footer__form", {
+    submitFormAutomatically: true,
+  });
+
+  validatorFooter.addField(".footer__input", [
+    {
+      rule: "email",
+      errorMessage: "Введите Email",
+    },
+  ]);
+} catch (e) {}
