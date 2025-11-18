@@ -143,14 +143,38 @@ try {
 } catch (e) {}
 
 try {
-  const validatorFooter = new JustValidate(".footer__form", {
-    submitFormAutomatically: true,
-  });
+  const validatorFooter = new JustValidate(".footer__form");
 
-  validatorFooter.addField(".footer__input", [
-    {
-      rule: "email",
-      errorMessage: "Введите Email",
-    },
-  ]);
+  validatorFooter
+    .addField(
+      "#footer__email",
+      [
+        {
+          rule: "required",
+          errorMessage: "Обязательное поле",
+        },
+        {
+          rule: "email",
+        },
+      ],
+      {
+        errorsContainer: document
+          .querySelector("#footer__email")
+          .parentElement.querySelector(".email-error-message"),
+      }
+    )
+    .addField(
+      "#footer__checkbox",
+      [
+        {
+          rule: "required",
+          errorMessage: "Обязательное поле",
+        },
+      ],
+      {
+        errorsContainer: document
+          .querySelector("#footer__checkbox")
+          .parentElement.parentElement.querySelector(".check-error-message"),
+      }
+    );
 } catch (e) {}
