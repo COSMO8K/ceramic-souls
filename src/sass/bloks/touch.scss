@@ -134,6 +134,10 @@
       bottom: 0;
       width: 85px;
       height: 85px;
+      animation-name: vaseRotate;
+      animation-iteration-count: infinite;
+      animation-duration: 3s;
+      animation-timing-function: steps(5, end);
     }
   }
 }

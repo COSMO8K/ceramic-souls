@@ -83,7 +83,7 @@ try {
 // Обратите внимание, что значение block (в двух местах) можно спокойно поменять на flex, если вам это необходимо
 
 try {
-  const validator = new JustValidate("form", { submitFormAutomatically: true });
+  const validator = new JustValidate(".touch__form");
 
   validator.addField("#name", [
     {
@@ -126,20 +126,40 @@ try {
     }
   );
 
-  validator.addField(
-    "#checkbox",
-    [
+  validator
+    .addField(
+      "#checkbox",
+      [
+        {
+          rule: "required",
+          errorMessage: "Обязательное поле",
+        },
+      ],
       {
-        rule: "required",
-        errorMessage: "Обязательное поле",
-      },
-    ],
-    {
-      errorsContainer: document
-        .querySelector("#checkbox")
-        .parentElement.parentElement.querySelector(".checkbox-error-message"),
-    }
-  );
+        errorsContainer: document
+          .querySelector("#checkbox")
+          .parentElement.parentElement.querySelector(".checkbox-error-message"),
+      }
+    )
+    .onSuccess((event) => {
+      event.preventDefault(); // гасим стандартный submit
+
+      const form = event.currentTarget;
+      const formData = new FormData(form);
+
+      fetch("https://httpbin.org/post", {
+        method: "POST",
+        body: formData,
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("Success", data);
+          form.reset();
+        })
+        .catch((error) => {
+          console.error("Fetch error:", error);
+        });
+    });
 } catch (e) {}
 
 try {
