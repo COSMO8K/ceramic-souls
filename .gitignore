@@ -1,0 +1,44 @@
+# Build output
+dist/
+build/
+
+# Node modules
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Cache
+.cache/
+.vite/
+.temp/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor / IDE
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Optional: coverage
+coverage/
+
+# Optional: lock files (если нужно — убери)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
